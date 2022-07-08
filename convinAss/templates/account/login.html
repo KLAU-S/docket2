@@ -1,0 +1,323 @@
+{% load socialaccount %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link href="https://fonts.googleapis.com/css?family=poppins" rel="stylesheet">
+       
+        <title>Docket</title>
+        <!-- <link rel="stylesheet" href="style.css"> -->
+    </head>
+    <body>
+        <section>
+            <div class="box" id="form">
+                <div class="square" style="--i:0;"></div>
+                <div class="square" style="--i:1;"></div>
+                <div class="square" style="--i:2;"></div>
+                <div class="square" style="--i:3;"></div>
+                <div class="square" style="--i:4;"></div>
+                <div class="container">
+                    <div class="form">
+						<h4>Login to Docket</h4><br>
+                        <hr id="ex"style="height:2px;border-width:0;color:rgb(255, 255, 255);background-color:rgb(255, 255, 255)"><br>
+
+						<!--we can add here signin with google-->
+                        <form>
+                            <!-- <div class ="inputbox">
+                                <input type="submit"value="Login with google" 
+                                <span class="button__text">Login with google</span>
+                                <span class="button__icon">
+                                    <ion-icon name="logo-google"></ion-icon>
+                                </span>
+                            </div> -->
+
+                            
+                            <button type="button" class="button">
+                                
+                                <a type="button" class="btn btn-primary" href="{% provider_login_url 'google' %}">
+                                <span class="button__text" >Login with Google+</span></a>
+                                <span class="button__icon">
+                                    <ion-icon name="logo-google"></ion-icon>
+                                </span>
+                            </a>
+                            </button>
+                              <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script><br>
+                            <hr style="height:2px;border-width:0;color:rgb(255, 255, 255);background-color:rgb(255, 255, 255)"></a>
+                            <div class ="inputbox">
+                                <input type="text" placeholder="Username">
+                            </div>
+                            <div class ="inputbox">
+                                <input type="password" placeholder="Password">
+                            </div>
+                            <div class ="inputbox">
+                                <input type="submit"value="Login">
+                            </div>
+                            <p class = "forget"> Forgot Password ? <a href = "#">Click Here</a></p>
+                            <p class = "forget"> Don't have an account ? <a href = "#">Sign Up</a></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+<style>
+*{
+  margin : 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+body{
+  background-color: rgba(27, 95, 196, 0.438);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+
+
+.logo, .h4, .span{
+  overflow: hidden;
+  white-space: nowrap;
+  animation: 
+  typing 3.5s steps(1000, end),
+  blink-caret .5s step-end infinite;
+}
+@keyframes typing {
+from { width: 0 }
+to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+from, to { border-color: transparent }
+50% { border-color: orange; }
+}
+
+/*allformcss*/
+section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.box{
+  position: relative;
+}
+
+.box .square{
+  position: absolute;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.5);
+  border-right: 1px solid rgba(255,255,255,0.2);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  animation: animate 10s linear infinite;
+  animation-delay: calc(-1s * var(--i));
+}
+
+@keyframes animate {
+  0%,100%{
+      transform: translateY(-40px);
+  }
+  50%{
+      transform: translateY(40px);
+  }    
+}
+
+.box .square:nth-child(1){
+  top: -50px;
+  right: -60px;
+  width: 100px;
+  height: 100px;
+}
+.box .square:nth-child(2){
+  top: 150px;
+  left: -100px;
+  width: 120px;
+  height: 120px;
+  z-index: 2;
+}
+.box .square:nth-child(3){
+  bottom: 50px;
+  right: -60px;
+  width: 80px;
+  height: 80px;
+  z-index: 2;
+}
+
+.box .square:nth-child(4){
+  bottom: -80px;
+  left: 100px;
+  width: 50px;
+  height: 50px;
+}
+.box .square:nth-child(5){
+  top: -80px;
+  left: 140px;
+  width: 100px;
+  height: 100px;
+}
+
+.container{
+  position: relative;
+  width: 400px;
+  min-height: 400px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.5);
+  border-right: 1px solid rgba(255,255,255,0.2);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+
+.form{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+}
+
+.form h4{
+  position: relative;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom:0px;
+}
+
+
+/* .form ::before{
+  content: '';
+  position: absolute;
+  left: 0px;
+  bottom: -10px;
+  width: 80px;
+  height: 4px;
+  background: #fff;
+} */
+
+.form .inputbox{
+  width: 100%;
+  margin-top: 20px;
+}
+
+.form .inputbox input{
+  width: 100%;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  border-radius: 35px;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-right: 1px solid rgba(255,255,255,0.2);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.form .inputbox input::placeholder{
+  color: #fff; 
+}
+.form .inputbox input[type="submit"]{
+  background: #fff;
+  color: #666;
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+
+.forget{
+  margin-top: 5px;
+  color: #fff;
+}
+
+.forget a{
+  color: #fff;
+  font-weight: 600;
+}
+/*yahatak*/
+@media screen and (max-width: 1500px) {
+  .nav-links{
+      width: 60%;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .nav-links{
+      width: 60%;
+  }
+}
+
+
+@media screen and (max-width:768px) {
+  body{
+      overflow-x: hidden;
+      background-image: url(1.jpg);
+  }
+}
+
+
+
+.button {
+  width: 100%;
+  display: flex;
+  height: 42px;
+  padding: 0;
+  background: #DB4437;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  overflow: hidden;
+  font-family: 'Poppins',sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 35px;
+  letter-spacing: 1px;
+}
+
+.button:hover {
+  background: #b43529;
+}
+
+.button:active {
+  background: #8f261d;
+}
+
+.button__text,
+.button__icon {
+  display: inline-flex;
+  align-items: center;
+  padding: 13px 49px;
+  color: #fff;
+  height: 100%;
+  
+}
+
+.button__icon {
+  font-size: 1.5em;
+  background: rgba(0, 0, 0, 0.08);
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  border-radius: 35px;
+}
+</style>
+</html>
